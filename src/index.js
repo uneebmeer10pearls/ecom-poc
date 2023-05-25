@@ -5,14 +5,14 @@ const port = 8080;
 
 app.use(express.static("public"));
 
-app.get("/", async (req:any, res:any) => {
+app.get("/", async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.status(200);
-  res.send(typeof(req))
+  res.send('Hello World2345!')
 });
 
 
-app.get("/employees", async (req:any, res:any) => {
+app.get("/employees", async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.status(200);
   res.send('Hello World!')
