@@ -31,9 +31,9 @@ services:
       # in your docker-compose.yml file
       # Our Node app will use these to connect
       # to the database
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=ecom-poc
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     ports:
       # Standard port for PostgreSQL databases
       - "5432:5432"
@@ -49,4 +49,4 @@ services:
     ports: 
       - 3001:8080
     depends_on:
-      - postgres  
+      - postgres
