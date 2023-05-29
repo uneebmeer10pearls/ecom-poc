@@ -18,7 +18,7 @@ model user{
   updatedAt         DateTime @updatedAt
   @@unique([email])
   @@index([id])
-} 
+}
 model user_address{
   id                String @id @default(uuid())
   userId            String @unique
