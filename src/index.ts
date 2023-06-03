@@ -1,19 +1,20 @@
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
+import express, { Application, Request, Response, NextFunction } from 'express';
+import { PrismaClient } from '@prisma/client'
 
-import { typeDefs } from './graphql/schema.js';
-import { resolvers } from './graphql/resolvers.js';
+const prisma = new PrismaClient()
+import 'dotenv/config'
 
-// The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+const app: Application = express();
+app.get('/',async (req: Request, res: Response, next: NextFunction) => {
+  const user = await prisma.user.create({
+         data: {
+                 name: 'Uneeb',
+                 email: 'uneebmir321@yahoo.com',
+                 password: 'bla'
+     },
+   })
+   console.log(user)
 });
-
-(async () => {
- const { url }:{url:String} = await startStandaloneServer(server, {
-  listen: { port: 8080 },
+app.listen(8080,() => {
+    console.log("uneeb23");
 });
-console.log(`🚀  Server ready at: ${url}`);
-})();
