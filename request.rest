@@ -1,0 +1,15 @@
+
+GET http://localhost:8080/
+
+###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "username":"uneeb"
+}
+
+###
+GET http://localhost:8080/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidW5lZWIiLCJpYXQiOjE2ODU4MTk1MzEsImV4cCI6MTY4NTk5MjMzMX0.LhuwVI5s3rX3p8tQBmQqzBaC5DDjmipYEiwhXPSgIvU
