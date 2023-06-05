@@ -13,5 +13,10 @@ app.post("/signup",[
     body('email').isEmail(),
     body('name').notEmpty().escape()
 ],userController.signUp)
+
+app.post("/login",[
+    body('email').notEmpty().escape(),
+    body('password').notEmpty().escape()
+],userController.login)
   
 module.exports = app;

@@ -7,7 +7,8 @@ POST {{baseUrl}}login
 Content-Type: application/json
 
 {
-    "username":"uneeb"
+    "email":"uneebmir23@gmail.com",
+    "password":"password"
 }
 
 ###
@@ -19,7 +20,7 @@ POST {{baseUrl}}signup
 content-type: application/json
 
 {
-    "email": "ubeeasssasdsmiasdr3221@yahoo.com",
+    "email": "uneebmir23@gmail.com",
     "name": "uneeb",
     "password":"password"
 }

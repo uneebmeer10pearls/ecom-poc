@@ -1,23 +1,9 @@
 import { PrismaClient } from '@prisma/client'
+import * as helper from '../utils/helper'
+
 const prisma = new PrismaClient({
     errorFormat: 'minimal',
-  })
-// export const createAccount = async (req: Request, res: Response) => {
-//     // try {
-//         return "hello from model"
-//         // res.status(200).send(req.body);
-//         // const user = await prisma.user.create({
-//             //          data: {
-//             //                  name: 'Uneeb',
-//             //                  email: 'uneebmir321@yahoo.com',
-//             //                  password: 'bla'
-//             //      },
-//             //    })
-//     //   res.status(200).send(foundUser);
-//     // } catch (error) {
-//     //   return res.status(500).send("test2");
-//     // }
-//    };
+})
 
 export async function createAccount(params:Object) {
     try {
@@ -34,11 +20,22 @@ export async function createAccount(params:Object) {
         }
     }
     catch (error) {
-        if (error instanceof Error) {
-            return {
-                status:400,
-                error:error.toString()
-            }
+        return helper.formatError(error)
+    }
+}
+export async function getUser(params:Object) {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+              email: params['email'],
+            },
+          })
+        return {
+            status:200,
+            data:user
         }
+    }
+    catch (error) {
+        return helper.formatError(error)
     }
 }
