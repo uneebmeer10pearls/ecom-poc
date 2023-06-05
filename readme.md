@@ -18,3 +18,8 @@ docker exec -it ecom-poc-app-1 sh
 npx prisma migrate
 //to run prisma migration
 ```
+## VS code extensions
+pretty typescript
+rest client
+
+there is a file called request.rest which you can run Api's from

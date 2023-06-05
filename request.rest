@@ -1,9 +1,9 @@
-
-GET http://localhost:8080/
+@baseUrl = http://localhost:8080/
+GET {{baseUrl}}
 
 ###
 
-POST http://localhost:8080/login
+POST {{baseUrl}}login
 Content-Type: application/json
 
 {
@@ -11,5 +11,15 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/test
+GET {{baseUrl}}test
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidW5lZWIiLCJpYXQiOjE2ODU4MTk1MzEsImV4cCI6MTY4NTk5MjMzMX0.LhuwVI5s3rX3p8tQBmQqzBaC5DDjmipYEiwhXPSgIvU
+
+###
+POST {{baseUrl}}signup
+content-type: application/json
+
+{
+    "email": "ubeeasssasdsmiasdr3221@yahoo.com",
+    "name": "uneeb",
+    "password":"password"
+}
