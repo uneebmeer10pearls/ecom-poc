@@ -1,6 +1,10 @@
+//controllers
 import * as userController from '../controllers/User';
-import express, { Application, Request, Response, NextFunction } from 'express';
+import * as CategoryController from '../controllers/Category';
+
+import { Request, Response } from 'express';
 import { body } from 'express-validator';
+import { validateJWTToken } from '../middleware/Auth'
 
 const { Router } = require('express');
 const app = Router();
@@ -18,5 +22,8 @@ app.post("/login",[
     body('email').notEmpty().escape(),
     body('password').notEmpty().escape()
 ],userController.login)
+
+app.get("/users",validateJWTToken,userController.users)
+app.post("/categories",validateJWTToken,CategoryController.categories)
   
 module.exports = app;

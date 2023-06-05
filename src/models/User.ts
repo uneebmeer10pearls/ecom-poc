@@ -28,8 +28,25 @@ export async function getUser(params:Object) {
         const user = await prisma.user.findUnique({
             where: {
               email: params['email'],
-            },
+            }
           })
+        return {
+            status:200,
+            data:user
+        }
+    }
+    catch (error) {
+        return helper.formatError(error)
+    }
+}
+export async function getUsers() {
+    try {
+        const user = await prisma.user.findMany({
+            select: {
+                email: true,
+                name: true,
+            },
+        })
         return {
             status:200,
             data:user

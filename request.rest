@@ -1,8 +1,8 @@
 @baseUrl = http://localhost:8080/
 GET {{baseUrl}}
 
+//login/signup
 ###
-
 POST {{baseUrl}}login
 Content-Type: application/json
 
@@ -10,11 +10,6 @@ Content-Type: application/json
     "email":"uneebmir23@gmail.com",
     "password":"password"
 }
-
-###
-GET {{baseUrl}}test
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidW5lZWIiLCJpYXQiOjE2ODU4MTk1MzEsImV4cCI6MTY4NTk5MjMzMX0.LhuwVI5s3rX3p8tQBmQqzBaC5DDjmipYEiwhXPSgIvU
-
 ###
 POST {{baseUrl}}signup
 content-type: application/json
@@ -24,3 +19,13 @@ content-type: application/json
     "name": "uneeb",
     "password":"password"
 }
+
+//users
+###
+GET {{baseUrl}}users
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjIwMCwiZGF0YSI6eyJpZCI6IjIzOTNmMjY1LTUzMGYtNGZlNS1iNGQyLTYyYzVjMjZkM2YyMCIsIm5hbWUiOiJ1bmVlYiIsImVtYWlsIjoidW5lZWJtaXIyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ4L2cuVFFsR3NxeTF5MDAyaElFOVdPbnRPTU1ZcFZJVi5wNXlEbURSYmk0cFNKbUltWHE4SyIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTQ6NDU6MjEuMDU2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTQ6NDU6MjEuMDU2WiJ9LCJpYXQiOjE2ODU5OTIyNDIsImV4cCI6MTY4NjE2NTA0Mn0.VH_YswmKUf-lNd8fOKX2fBiLvHXGJsqF-1z52fD_dcY
+
+GET {{baseUrl}}user
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjIwMCwiZGF0YSI6eyJpZCI6IjIzOTNmMjY1LTUzMGYtNGZlNS1iNGQyLTYyYzVjMjZkM2YyMCIsIm5hbWUiOiJ1bmVlYiIsImVtYWlsIjoidW5lZWJtaXIyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ4L2cuVFFsR3NxeTF5MDAyaElFOVdPbnRPTU1ZcFZJVi5wNXlEbURSYmk0cFNKbUltWHE4SyIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTQ6NDU6MjEuMDU2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTQ6NDU6MjEuMDU2WiJ9LCJpYXQiOjE2ODU5OTIyNDIsImV4cCI6MTY4NjE2NTA0Mn0.VH_YswmKUf-lNd8fOKX2fBiLvHXGJsqF-1z52fD_dcY

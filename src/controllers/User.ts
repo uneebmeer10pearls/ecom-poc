@@ -19,7 +19,8 @@ export const login = async (req: Request, res: Response) => {
   });
   if(!getUser['data']){
     return res.status(400).send("User Not Found!");
-  }
+}
+
 const verifyPassword = await bcrypt.compareSync(password, getUser['data']['password']);
   if(verifyPassword){
     return res.status(200).send({
@@ -59,4 +60,8 @@ export const signUp = async (req: Request, res: Response) => {
     newUser['data']['token '] = token
     return res.status(200).send(newUser);
   }
+};
+
+export const users = async (req: Request, res: Response) => {
+  return res.status(200).send(await userModel.getUsers())
 };
