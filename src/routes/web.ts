@@ -1,6 +1,7 @@
 //controllers
-import * as userController from '../controllers/User';
+import * as UserController from '../controllers/User';
 import * as CategoryController from '../controllers/Category';
+import * as ProductController from '../controllers/Product';
 
 import { Request, Response } from 'express';
 import { body } from 'express-validator';
@@ -15,15 +16,32 @@ app.get('/', (req: Request, res: Response) => {
  
 app.post("/signup",[
     body('email').isEmail(),
-    body('name').notEmpty().escape()
-],userController.signUp)
+    body('name').notEmpty().escape(),
+    body('password').notEmpty().escape()
+],UserController.signUp)
 
 app.post("/login",[
     body('email').notEmpty().escape(),
     body('password').notEmpty().escape()
-],userController.login)
+],UserController.login)
 
-app.get("/users",validateJWTToken,userController.users)
-app.post("/categories",validateJWTToken,CategoryController.categories)
-  
+app.get("/users",validateJWTToken,UserController.users)
+
+
+//products
+app.get("/products",validateJWTToken,ProductController.products)
+
+app.post("/addProduct",ProductController.addProduct)
+
+//categories
+
+app.get("/categories",validateJWTToken,CategoryController.categories)
+
+app.post("/addCategory",[
+    body('name').notEmpty().escape(),
+    body('description').notEmpty().escape()
+],validateJWTToken,CategoryController.addCategory)
+
+app.put("/deleteCategory",validateJWTToken,CategoryController.deleteCategory)
+
 module.exports = app;

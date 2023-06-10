@@ -6,6 +6,10 @@ Foobar is a Python library for dealing with word pluralization.
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
+//install packages
+
+npm i
+
 ```bash
 docker-compose up
 ```
@@ -23,3 +27,10 @@ pretty typescript
 rest client
 
 there is a file called request.rest which you can run Api's from
+
+
+jes/super test are used for unit testing run
+
+npm run test
+
+to execude tests

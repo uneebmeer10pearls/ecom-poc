@@ -49,10 +49,3 @@ model products{
   categories        categories @relation(fields:[category_id],references: [id])
   @@index([id])
 }
-
-
-enum Role{
-Basic
-Editor
-Admin
-}

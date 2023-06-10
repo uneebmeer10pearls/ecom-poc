@@ -41,7 +41,6 @@ export const signUp = async (req: Request, res: Response) => {
         errors: result.array()
     });
   }
-
   let { password } = req.body
 
   const hashedPassword = await bcrypt.hashSync(password, 10);

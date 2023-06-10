@@ -17,3 +17,19 @@ export async function getCategories() {
         return helper.formatError(error)
     }
 }
+export async function createCategory(params) {
+    try {
+        let { name,description } = params
+        // const user = await prisma.categories.create({
+        //     name:params['name'],
+        //     description:description
+        // })
+        // return {
+        //     status:200,
+        //     data:user
+        // }
+    }
+    catch (error) {
+        return helper.formatError(error)
+    }
+}
