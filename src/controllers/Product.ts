@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as productModel from '../models/Product';
+import * as productModel from '../models/Product.js';
 import { validationResult } from 'express-validator';
 
 export const products = async (req: Request, res: Response) => {

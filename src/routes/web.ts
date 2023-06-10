@@ -1,13 +1,13 @@
 //controllers
-import * as UserController from '../controllers/User';
-import * as CategoryController from '../controllers/Category';
-import * as ProductController from '../controllers/Product';
+import * as UserController from '../controllers/User.js'
+import * as CategoryController from '../controllers/Category.js'
+import * as ProductController from '../controllers/Product.js'
 
-import { Request, Response } from 'express';
-import { body } from 'express-validator';
-import { validateJWTToken } from '../middleware/Auth'
+import { Request, Response } from 'express'
+import { body } from 'express-validator'
+import { validateJWTToken } from '../middleware/Auth.js'
 
-const { Router } = require('express');
+import { Router } from 'express'
 const app = Router();
 
 app.get('/', (req: Request, res: Response) => {
@@ -43,4 +43,4 @@ app.post("/addCategory",[
 
 app.put("/deleteCategory",validateJWTToken,CategoryController.deleteCategory)
 
-module.exports = app;
+export default app

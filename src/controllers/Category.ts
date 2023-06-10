@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as categoryModel from '../models/Category';
+import * as categoryModel from '../models/Category.js';
 import { validationResult } from 'express-validator';
 
 export const categories = async (req: Request, res: Response) => {

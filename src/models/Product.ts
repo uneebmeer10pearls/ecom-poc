@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import * as helper from '../utils/helper'
+import * as helper from '../utils/helper.js'
 
 const prisma = new PrismaClient({
     errorFormat: 'minimal',

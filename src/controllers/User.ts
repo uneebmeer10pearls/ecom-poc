@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import * as userModel from '../models/User';
+import * as userModel from '../models/User.js';
 import { validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs'
-import * as helper from '../utils/helper'
+import * as helper from '../utils/helper.js'
 
 export const login = async (req: Request, res: Response) => {
   const result = validationResult(req);

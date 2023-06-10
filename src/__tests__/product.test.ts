@@ -1,5 +1,5 @@
 import supertest from 'supertest'
-import app from '../index'
+import app from '../index.js'
 
 describe("get product route", () => {
     describe("given the product does not exist", () => {
