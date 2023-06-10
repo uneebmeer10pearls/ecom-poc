@@ -27,7 +27,6 @@ app.post("/login",[
 
 app.get("/users",validateJWTToken,UserController.users)
 
-
 //products
 app.get("/products",validateJWTToken,ProductController.products)
 
