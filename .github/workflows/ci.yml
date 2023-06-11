@@ -10,18 +10,6 @@ on:
     branches: [ master ]
 
 jobs:
-  # create-envfile:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Make envfile
-  #     uses: SpicyPizza/create-envfile@v1
-  #     with:
-  #       envkey_DEBUG: false
-  #       envkey_SOME_API_KEY: "123456abcdef"
-  #       envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
-  #       directory: .
-  #       file_name: .env
-  #   - run: ls -a
   CI:
     # needs: create-envfile
     runs-on: ubuntu-latest
@@ -45,7 +33,9 @@ jobs:
     - run: npm run build
     - run: npm run test
     - run: ls -a
-    - run: sudo mv .env /dist
+    - run: sudo mv /github/workspace/.env /github/workspace/dist
+    - run: cd dist
+    - run: ls -a
     - run: cd dist
     - run: ls -a
   CD:
@@ -58,3 +48,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ecom-poc"
           heroku_email: "uneeb.saleem@10pearls.com"  
+    - run: ls -a    
