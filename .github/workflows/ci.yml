@@ -44,9 +44,7 @@ jobs:
     - run: npm run build
     - run: npm run test
     - run: mv .env /build
-    - run: ls -a
-
-    
+    - run: ls -a 
   CD:
     needs: CI
     runs-on: ubuntu-latest
