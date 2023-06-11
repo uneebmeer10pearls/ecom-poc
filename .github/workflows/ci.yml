@@ -33,7 +33,7 @@ jobs:
     - run: npm run build
     - run: npm run test
     - run: ls -a
-    - run: sudo mv /github/workspace/.env /github/workspace/dist
+    - run: sudo cp .env /github/workspace/dist
     - run: cd dist
     - run: ls -a
     - run: cd dist
