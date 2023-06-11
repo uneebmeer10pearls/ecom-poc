@@ -44,7 +44,8 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run test
-    - run: sudo mv .env dist
+    - run: ls -a
+    - run: sudo mv .env /dist
     - run: cd dist
     - run: ls -a
   CD:
