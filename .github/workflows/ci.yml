@@ -43,7 +43,7 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run test
-    - run: mv .env /build
+    - run: sudo mv .env /build
     - run: ls -a 
   CD:
     needs: CI
