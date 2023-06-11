@@ -40,12 +40,13 @@ jobs:
       with:
         envkey_GITHUB_LOGIN: "sania-dsouza"
         envkey_GITHUB_PERSONAL_ACCESS_TOKEN: uneeb
-    - run: ls -a    
     - run: npm ci
     - run: npm run build
-    - run: ls -a
-    - run: cat .env
     - run: npm run test
+    - run: mv .env /build
+    - run: ls -a
+
+    
   CD:
     needs: CI
     runs-on: ubuntu-latest
