@@ -23,20 +23,20 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Create .env file
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
-        envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
+    # - name: Create .env file
+    #   uses: SpicyPizza/create-envfile@v1
+    #   with:
+    #     envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
+    #     envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    #     envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
     - run: npm ci
     - run: npm run build
     - run: npm run test
-    - run: ls -a
-    - run: sudo cp .env /dist
-    - run: cd dist
-    - run: ls -a
-    - run: cat .env
+    # - run: ls -a
+    # - run: sudo cp .env /dist
+    # - run: cd dist
+    # - run: ls -a
+    # - run: cat .env
 
   CD:
     needs: CI
@@ -44,6 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.14
+      - run: sudo touch .env
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ecom-poc"
@@ -53,3 +54,4 @@ jobs:
           envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
           envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
           envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
+      - run: ls -a
