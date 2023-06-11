@@ -2,7 +2,7 @@
 //into a new file to avoid that error
 
 import app from './index.js'
-const port = process.env.SERVER_PORT || 8080
+const port = process.env.PORT || 8080
 app.listen(port,() => {
     console.log(`Server Started at localhost:${port}`);
 });
