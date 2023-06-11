@@ -37,6 +37,8 @@ jobs:
     # - run: sudo cp .env /dist/dist
     - run: cd dist
     - run: ls -a
+    - run: cd dist
+    - run: ls -a
 
   CD:
     needs: CI
