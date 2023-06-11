@@ -35,9 +35,9 @@ jobs:
     - run: npm run test
     - run: ls -a
     # - run: sudo cp .env /dist/dist
-    - run: cd dist
+    - run: cd build
     - run: ls -a
-    - run: cd dist
+    - run: cd build
     - run: ls -a
 
   CD:
