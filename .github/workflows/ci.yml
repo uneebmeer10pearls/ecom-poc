@@ -21,7 +21,7 @@ jobs:
         envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
         directory: .
         file_name: .env
-      - run: ls -a
+    - run: ls -a
   CI:
     needs: create-envfile
     runs-on: ubuntu-latest
