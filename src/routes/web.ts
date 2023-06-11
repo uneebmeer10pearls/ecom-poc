@@ -11,7 +11,7 @@ import { Router } from 'express'
 const app = Router();
 
 app.get('/', (req: Request, res: Response) => {
-    res.send("Hello World");
+    res.send("Hello World2");
 });
  
 app.post("/signup",[
