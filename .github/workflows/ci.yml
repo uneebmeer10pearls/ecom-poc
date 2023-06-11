@@ -21,6 +21,7 @@ jobs:
         envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
         file_name: .env
   CI:
+    needs: create-envfile
     runs-on: ubuntu-latest
     strategy:
       matrix:
