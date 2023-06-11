@@ -60,3 +60,6 @@ jobs:
         #   envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
       - run: pwd
       - run: ls -a
+      - run: cd ..
+      - run: pwd
+      - run: ls -a
