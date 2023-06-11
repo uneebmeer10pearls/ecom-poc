@@ -10,20 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  create-envfile:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_DEBUG: false
-        envkey_SOME_API_KEY: "123456abcdef"
-        envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
-        directory: .
-        file_name: .env
-    - run: ls -a
   CI:
-    needs: create-envfile
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,9 +24,20 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - run: ls -a
-    - run: cat .env
     - run: npm run test
+  create-envfile:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        envkey_SOME_API_KEY: "123456abcdef"
+        envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
+        directory: build
+        file_name: .env  
+    - run: ls -a    
   CD:
     needs: CI
     runs-on: ubuntu-latest
