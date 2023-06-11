@@ -19,6 +19,7 @@ jobs:
         envkey_DEBUG: false
         envkey_SOME_API_KEY: "123456abcdef"
         envkey_SECRET_KEY: ${{ secrets.DATABASE_URL }}
+        directory: .
         file_name: .env
   CI:
     needs: create-envfile
