@@ -17,7 +17,7 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -29,6 +29,7 @@ jobs:
     #     envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
     #     envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
     #     envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
+    - run: ls -a
     - run: npm ci
     - run: npm run build
     - run: npm run test
