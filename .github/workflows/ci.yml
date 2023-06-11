@@ -48,9 +48,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ecom-poc"
           heroku_email: "uneeb.saleem@10pearls.com"
-          env_file: ".env"
-        env:
-          envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
-          envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
+        #   env_file: ".env"
+        # env:
+        #   envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
+        #   envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        #   envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
       - run: ls -a
