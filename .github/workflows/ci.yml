@@ -38,7 +38,7 @@ jobs:
     - run: ls -a
     - run: cd dist
     - run: ls -a
-    
+
   CD:
     needs: CI
     runs-on: ubuntu-latest
@@ -48,5 +48,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ecom-poc"
-          heroku_email: "uneeb.saleem@10pearls.com"  
-    - run: ls -a    
+          heroku_email: "uneeb.saleem@10pearls.com"
