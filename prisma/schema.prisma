@@ -14,23 +14,9 @@ model user{
   name              String
   email             String
   password          String
-  userAddress       user_address?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   @@unique([email])
-  @@index([id])
-}
-model user_address{
-  id                String @id @default(uuid())
-  userId            String @unique
-  address_line1     String
-  address_line2     String
-  city              String
-  postal_code       Int
-  mobile            Int
-  user              user @relation(fields:[userId],references: [id])
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
   @@index([id])
 }
 model categories{

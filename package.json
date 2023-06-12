@@ -9,6 +9,7 @@
     "start:dev": "npx nodemon",
     "start": "node build/server.js",
     "build": "rimraf ./build && tsc",
+    "seed": "node --loader ts-node/esm seed.ts",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix"
   },

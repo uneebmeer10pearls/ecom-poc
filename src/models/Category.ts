@@ -7,7 +7,11 @@ const prisma = new PrismaClient({
 
 export async function getCategories() {
     try {
-        const user = await prisma.categories.findMany()
+        const user = await prisma.categories.findMany({
+            include: {
+                products: true, // All posts where authorId == 20
+              }
+        })
         return {
             status:200,
             data:user
@@ -20,14 +24,54 @@ export async function getCategories() {
 export async function createCategory(params) {
     try {
         let { name,description } = params
-        // const user = await prisma.categories.create({
-        //     name:params['name'],
-        //     description:description
-        // })
-        // return {
-        //     status:200,
-        //     data:user
-        // }
+        const user = await prisma.categories.create({
+            data: {
+              name:  name,
+              description:description
+            },
+          })
+        return {
+            status:200,
+            data:user
+        }
+    }
+    catch (error) {
+        return helper.formatError(error)
+    }
+}
+export async function deleteCategory(params) {
+    try {
+        let { id } = params
+        const user = await prisma.categories.delete({
+            where: {
+              id: id,
+            },
+          })
+        return {
+            status:200,
+            data:user
+        }
+    }
+    catch (error) {
+        return helper.formatError(error)
+    }
+}
+export async function updateCategory(params) {
+    try {
+        let { id,name,description } = params
+        const user = await prisma.categories.update({
+            where: {
+              id: id,
+            },
+            data: {
+              name: name,
+              description:description
+            },
+        })
+        return {
+            status:200,
+            data:user
+        }
     }
     catch (error) {
         return helper.formatError(error)

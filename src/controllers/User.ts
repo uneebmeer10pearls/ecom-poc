@@ -12,6 +12,7 @@ export const login = async (req: Request, res: Response) => {
         errors: result.array()
     });
   }
+  console.log(req.body)
   const { email,password } = req.body
 
   const getUser = await userModel.getUser({

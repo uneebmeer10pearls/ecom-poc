@@ -1,10 +1,15 @@
 import supertest from 'supertest'
 import app from '../index.js'
 
-describe("get product route", () => {
-    describe("given the product does not exist", () => {
-      it("should return a 404", async () => {
-        await supertest(app).get(`/login`).expect(404);
+describe("Login User", () => {
+    describe("given the user exist", () => {
+      it("should return a 200", async () => {
+        const user={
+          "email":"testemail@gmail.com",
+          "password":"password"
+      }
+        const res = await supertest(app).post(`/login`).send(user);
+        expect(res.statusCode).toEqual(200)
       })
     })
 })
