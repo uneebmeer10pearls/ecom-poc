@@ -42,7 +42,9 @@ jobs:
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_DATABASE_URL: "postgres://uneeb.saleem:PZ8hFfit2pOz@ep-nameless-glitter-897635-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=10"
-        envkey_GITHUB_PERSONAL_ACCESS_TOKEN: uneeb    
+        envkey_PORT: "8080"
+        envkey_JWT_TOKEN_PRIVATE_KEY: "80d81dfea47bcb7fd88997426db168a52c4d3e2feefd52a9b29552362c5aee1da2c186b4d0c2b66964f11869cdfe1ee3d36b5e82ea5eeff6bae04708dbcf59e3"  
+        envkey_JWT_EXPIRATION: "2 days"
     - run: ls -a
     - run: sudo cp .env /dist
     - run: ls -a
