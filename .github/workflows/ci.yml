@@ -44,7 +44,7 @@ jobs:
         envkey_DATABASE_URL: "postgres://uneeb.saleem:PZ8hFfit2pOz@ep-nameless-glitter-897635-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=10"
         envkey_GITHUB_PERSONAL_ACCESS_TOKEN: uneeb    
     - run: ls -a
-    - run: cp .env /dist
+    - run: sudo cp .env /dist
     - run: ls -a
     - run: npm ci
     - run: npm run build 
