@@ -39,7 +39,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: ls -a
-    - run: cat .env    
+    - run: cp /github/workspace/.env .
+    - run: ls -a
     - run: npm ci
     - run: npm run build
     - run: npm run test
