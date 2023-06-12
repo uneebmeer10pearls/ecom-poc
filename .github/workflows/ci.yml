@@ -24,7 +24,7 @@ jobs:
         some_other_variable: foobar
         file_name: .env
         fail_on_empty: false
-      - run: ls -a  
+    - run: ls -a  
   CI:
     needs: create-envfile
     runs-on: ubuntu-latest
