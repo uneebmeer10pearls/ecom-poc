@@ -38,17 +38,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: ls -a
+    # - run: cp /github/workspace/.env .
+    # - run: ls -a
+    - run: npm ci
+    - run: npm run build
     - name: 'Create env file'
         run: |
           touch .env
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
           echo API_KEY="test" >> .env
           cat .env    
-    - run: ls -a
-    # - run: cp /github/workspace/.env .
-    # - run: ls -a
-    - run: npm ci
-    - run: npm run build
     - run: npm run test
   CD:
     needs: CI
