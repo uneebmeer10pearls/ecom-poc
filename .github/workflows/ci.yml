@@ -32,6 +32,11 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
+    - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          INPUT_ENV_TEST_API_KEY: "uneeb"
+          INPUT_ENV_ANOTHER_KEY: "meer"
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -43,12 +48,12 @@ jobs:
     # - run: ls -a
     - run: npm ci
     - run: npm run build
-    - name: 'Create env file'
-        run: |
-          touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY="test" >> .env
-          cat .env    
+    # - name: 'Create env file'
+    #     run: |
+    #       touch .env
+    #       echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+    #       echo API_KEY="test" >> .env
+    #       cat .env    
     - run: npm run test
   CD:
     needs: CI
