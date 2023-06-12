@@ -42,9 +42,9 @@ jobs:
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_DATABASE_URL: "postgres://uneeb.saleem:PZ8hFfit2pOz@ep-nameless-glitter-897635-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=10"
-        envkey_PORT: ${{ secret.PORT }}
-        envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secret.JWT_TOKEN_PRIVATE_KEY }}
-        envkey_JWT_EXPIRATION: ${{ secret.JWT_EXPIRATION }}
+        envkey_PORT: ${{ secrets.PORT }}
+        envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
+        envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
     - run: sudo cp .env /dist
     - run: npm ci
     - run: npm run build 
