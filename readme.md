@@ -21,12 +21,16 @@ docker-compose up
 
 login to the postgres docker container using
 ```docker exec -it ecom-poc-app-1 sh```
+
 For running all migrations locally
 ``` npx prisma migrate dev --name init ```
+
 For running all migrations on production
 ``` npx prisma migrate deploy```
+
 run seeder file
 ``` npm run seed ```
+
 For production environments...
 
 #### CI/CD
