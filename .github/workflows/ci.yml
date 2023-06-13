@@ -25,7 +25,7 @@ jobs:
     - name: Create .env file
       uses: SpicyPizza/create-envfile@v1
       with:
-        envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        envkey_DATABASE_URL: "postgres://uneeb.saleem:PZ8hFfit2pOz@ep-nameless-glitter-897635-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=10"
         envkey_PORT: ${{ secrets.PORT }}
         envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
         envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
