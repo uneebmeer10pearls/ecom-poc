@@ -10,23 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  # create-envfile:
- 
-  #   runs-on: ubuntu-latest
- 
-  #   steps:
-  #   - name: Make envfile
-  #     uses: SpicyPizza/create-envfile@v1.3
-  #     with:
-  #       envkey_DEBUG: false
-  #       envkey_SOME_API_KEY: "123456abcdef"
-  #       envkey_SECRET_KEY: "bla"
-  #       some_other_variable: foobar
-  #       file_name: .env
-  #       fail_on_empty: false
-  #   - run: ls -a  
   CI:
-    # needs: create-envfile
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,13 +25,12 @@ jobs:
     - name: Create .env file
       uses: SpicyPizza/create-envfile@v1
       with:
-        envkey_DATABASE_URL: "postgres://uneeb.saleem:PZ8hFfit2pOz@ep-nameless-glitter-897635-pooler.ap-southeast-1.aws.neon.tech/neondb?pgbouncer=true&connect_timeout=10"
+        envkey_DATABASE_URL: ${{ secrets.DATABASE_URL }}
         envkey_PORT: ${{ secrets.PORT }}
         envkey_JWT_TOKEN_PRIVATE_KEY: ${{ secrets.JWT_TOKEN_PRIVATE_KEY }}
         envkey_JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
     - run: sudo cp .env /dist
     - run: npm ci
-    - run: npm run build 
     - run: npm run test
   CD:
     needs: CI
