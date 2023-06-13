@@ -32,6 +32,7 @@ For running all migrations on production
 ``` npx prisma migrate deploy```
 
 run seeder file
+
 ``` npm run seed ```
 
 
