@@ -9,6 +9,8 @@ WORKDIR /usr/src/app
 # copying packages first helps take advantage of docker layers
 COPY package*.json ./
 
+RUN apt-get -qy update && apt-get -qy install openssl
+
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
