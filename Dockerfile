@@ -9,6 +9,7 @@ WORKDIR /usr/src/app
 # copying packages first helps take advantage of docker layers
 COPY package*.json ./
 
+# needed because primsa expect some libraries to be present in order to work
 RUN apt-get -qy update && apt-get -qy install openssl
 
 RUN npm install
